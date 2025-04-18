@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Microsoft.Maui.Controls"
+             xmlns:model="clr-namespace:TaskManager.Models"
+             xmlns:viewmodel="clr-namespace:TaskManager.ViewModels"
+             x:Class="TaskManager.Pages.SettingsPage"
+             Title="Settings"
+             x:DataType="viewmodel:SettingsViewModel"
+     BackgroundColor="#F5F5F5">
+
+    <Grid Padding="15" RowDefinitions="Auto, *, Auto, Auto">
+        <!-- User Details -->
+        <VerticalStackLayout Grid.Row="0" Spacing="10">
+            <!-- Profile Picture -->
+            <Border Background="{StaticResource Primary}" 
+                    HeightRequest="80" 
+                    WidthRequest="80"
+                    StrokeShape="RoundRectangle 40"
+                    StrokeThickness="5">
+                <Label Text="{Binding Initial}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="White"
+                       FontSize="40"/>
+            </Border>
+
+            <!-- Name -->
+            <Label Text="{Binding Name}"
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+
+            <!-- Email -->
+            <Label Text="{Binding Email}"
+                   FontSize="14"
+                   HorizontalOptions="Center"
+                   TextColor="Gray"/>
+        </VerticalStackLayout>
+
+        <!-- Edit Section -->
+        <VerticalStackLayout Grid.Row="1" Padding="10" Spacing="15">
+            <!-- Edit Name -->
+            <Grid ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
+                <Image Grid.Column="0" 
+                       Source="user.png" 
+                       WidthRequest="20"
+                       VerticalOptions="Center"/>
+                <Label Grid.Column="1" 
+                       Text="Edit Name"
+                       VerticalOptions="Center"
+                       FontSize="16"/>
+                <Image Grid.Column="2" 
+                       Source="arrow_forward_ios.png" 
+                       WidthRequest="20"
+                       VerticalOptions="Center"/>
+            </Grid>
+
+            <!-- Additional Options -->
+            <Grid ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
+                <Image Grid.Column="0" 
+                       Source="info.png" 
+                       WidthRequest="20"
+                       VerticalOptions="Center"/>
+                <Label Grid.Column="1" 
+                       Text="App Information"
+                       VerticalOptions="Center"
+                       FontSize="16"/>
+                <Image Grid.Column="2" 
+                       Source="arrow_forward_ios.png" 
+                       WidthRequest="20"
+                       VerticalOptions="Center"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <!-- Logout Button -->
+        <Button Grid.Row="2"
+                Text="Logout"
+                BackgroundColor="#FF4D4D"
+                TextColor="White"
+                CornerRadius="20"
+                Padding="20, 15"
+                FontSize="16"
+                Command="{Binding LogoutCommand}"
+                HorizontalOptions="Fill"
+                Margin="10, 0"/>
+
+        <!-- Footer (App Information) -->
+        <VerticalStackLayout Grid.Row="3" 
+                             Spacing="5" 
+                             HorizontalOptions="Center">
+            <Label Text="Developed by Asaad Asaad"
+                   FontSize="12"
+                   TextColor="Gray"/>
+            <Label Text="Version 1.0.0"
+                   FontSize="12"
+                   TextColor="Gray"/>
+        </VerticalStackLayout>
+    </Grid>
+
+
+</ContentPage>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Microsoft.Maui.Controls"
+             xmlns:viewmodel="clr-namespace:TaskManager.ViewModels"
+             xmlns:model="clr-namespace:TaskManager.ViewModels"
+             x:DataType="viewmodel:LoginViewModel"
+             x:Class="TaskManager.Pages.LoginPage"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="Auto, Auto, Auto, *" RowSpacing="15">
+        
+        <VerticalStackLayout Grid.Row="0" 
+                         Margin="0, 50, 0, 0" 
+                         HorizontalOptions="Center"
+                         Spacing="20">
+            
+            <Image Source="tasks.png" HeightRequest="150"/>
+            <Label Text="Your Daily Task Manager" 
+               FontSize="20" 
+               FontAttributes="Bold"/>
+        </VerticalStackLayout>
+
+        
+        <Label Grid.Row="1"
+           Text="Welcome back!"
+           FontSize="22"
+           HorizontalOptions="Center"/>
+
+        
+        <VerticalStackLayout Grid.Row="2" Spacing="25" Padding="20">
+            <Entry Placeholder="Email" Keyboard="Email" TextColor="Black"/>
+            <Entry Placeholder="Password" IsPassword="True" TextColor="Black"/>
+            <Button Text="Login" FontAttributes="Bold" Command="{Binding LoginCommand}"/>
+
+            <Label HorizontalOptions="Center"
+               Text="Don't have an account? Register"
+               TextColor="Blue">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToRegisterCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>

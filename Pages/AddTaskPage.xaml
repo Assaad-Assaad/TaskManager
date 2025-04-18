@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Microsoft.Maui.Controls"
+             xmlns:local="clr-namespace:TaskManager.Utils"
+             xmlns:viewmodel="clr-namespace:TaskManager.ViewModels"
+             xmlns:model="clr-namespace:TaskManager.Models"
+             x:DataType="viewmodel:AddTaskViewModel"
+             x:Class="TaskManager.Pages.AddTaskPage"
+             Title="Add Task"
+             BackgroundColor="#EFEFEF">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20" BackgroundColor="#FAFAFA">
+
+            <!-- Category Section -->
+            <Label Text="Category" 
+               FontSize="20" 
+               FontAttributes="Bold" 
+               TextColor="#222222" 
+               HorizontalOptions="Start"/>
+
+            <CollectionView ItemsSource="{Binding Categories}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedCategory}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="4"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:CategoryModel">
+                        <Border Stroke="#DDDDDD" 
+                            StrokeThickness="1" 
+                            StrokeShape="RoundRectangle 10" 
+                            BackgroundColor="White" 
+                            Padding="10">
+                            <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
+                                <Image Source="{Binding Image}" 
+                                   HeightRequest="40" 
+                                   WidthRequest="40" 
+                                   Aspect="AspectFit"/>
+                                <Label Text="{Binding Name}" 
+                                   FontSize="12" 
+                                   HorizontalOptions="Center" 
+                                   TextColor="#444444"
+                                   LineBreakMode="WordWrap"
+                                   MaxLines="2"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Title -->
+            <Border Stroke="#DDDDDD" 
+                StrokeThickness="1" 
+                StrokeShape="RoundRectangle 10" 
+                BackgroundColor="White" 
+                Padding="10">
+                <Entry Placeholder="Title" 
+                   Text="{Binding Title}" 
+                   FontSize="16" 
+                   ReturnType="Next" 
+                   PlaceholderColor="#999999" 
+                   TextColor="#333333"/>
+            </Border>
+
+            <!-- Description -->
+            <Border Stroke="#DDDDDD" 
+                StrokeThickness="1" 
+                StrokeShape="RoundRectangle 10" 
+                BackgroundColor="White" 
+                Padding="10">
+                <Editor Placeholder="Description" 
+                    Text="{Binding Description}" 
+                    HeightRequest="100" 
+                    FontSize="14" 
+                    AutoSize="TextChanges" 
+                    PlaceholderColor="#999999" 
+                    TextColor="#333333"/>
+            </Border>
+
+            <!-- Priority -->
+            <Border Stroke="#DDDDDD" 
+                StrokeThickness="1" 
+                StrokeShape="RoundRectangle 10" 
+                BackgroundColor="White" 
+                Padding="10">
+                <Picker Title="Priority" 
+                    ItemsSource="{Binding Source={x:Static local:PriorityFilters.All}}" 
+                    SelectedItem="{Binding Priority}" 
+                    FontSize="16" 
+                    TextColor="#333333"/>
+            </Border>
+
+            <!-- Due Date -->
+            <Border Stroke="#DDDDDD" 
+                StrokeThickness="1" 
+                StrokeShape="RoundRectangle 10" 
+                BackgroundColor="White" 
+                Padding="10">
+                <DatePicker Date="{Binding DueDate}" 
+                        Format="MM/dd/yyyy" 
+                        FontSize="16" 
+                        TextColor="#333333"/>
+            </Border>
+
+            <!-- Save Button -->
+            <Button Text="Save Task" 
+                BackgroundColor="#0078D4" 
+                TextColor="White" 
+                CornerRadius="8" 
+                Padding="15,10" 
+                FontSize="16" 
+                Command="{Binding SaveTaskCommand}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>

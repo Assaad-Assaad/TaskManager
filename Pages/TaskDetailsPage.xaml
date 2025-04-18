@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+           xmlns:controls="clr-namespace:Microsoft.Maui.Controls"  
+           xmlns:viewmodel="clr-namespace:TaskManager.ViewModels"  
+           xmlns:model="clr-namespace:TaskManager.Models"  
+           x:DataType="viewmodel:TaskDetailsViewModel"  
+           x:Class="TaskManager.Pages.TaskDetailsPage"  
+           Title="Task Details">  
+  <ScrollView>  
+      <VerticalStackLayout Padding="15" Spacing="15">  
+          <!-- Header Section -->  
+          <Border StrokeShape="RoundRectangle 15"  
+                  BackgroundColor="White"  
+                  Padding="15">  
+              <Border.Shadow>  
+                  <Shadow />  
+              </Border.Shadow>  
+              <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *">  
+                  <!-- Category Image -->  
+                  <Image Grid.Row="0" Grid.Column="0"  
+                         Source="{Binding Task.Category.Image}"   
+                         HeightRequest="60"   
+                         WidthRequest="60"   
+                         Aspect="AspectFit"/>  
+
+                  <!-- Title -->  
+                  <Label Grid.Row="0" Grid.Column="1"  
+                         Text="{Binding Task.Title}"   
+                         FontSize="24"   
+                         FontAttributes="Bold"   
+                         VerticalOptions="Center"/>  
+
+                  <!-- Priority -->  
+                  <Label Grid.Row="1" Grid.Column="1"  
+                         Text="{Binding TaskModel.Priority, StringFormat='Priority: {0}'}"   
+                         FontSize="16"   
+                         TextColor="{Binding Task.Priority}"/>  
+              </Grid>  
+          </Border>  
+
+          <!-- Description Card -->  
+          <Border StrokeShape="RoundRectangle 15"  
+                  BackgroundColor="White"  
+                  Padding="15">  
+              <Border.Shadow>  
+                  <Shadow />  
+              </Border.Shadow>  
+              <Label Text="{Binding Task.Description}"   
+                     FontSize="16"   
+                     TextColor="#333333"   
+                     LineBreakMode="WordWrap"/>  
+          </Border>  
+
+          <!-- Due Date Card -->  
+          <Border StrokeShape="RoundRectangle 15"  
+                  BackgroundColor="White"  
+                  Padding="15">  
+              <Border.Shadow>  
+                  <Shadow />  
+              </Border.Shadow>  
+              <Label Text="{Binding Task.DueDate, StringFormat='Due Date: {0:MM/dd/yyyy}'}"   
+                     FontSize="16"   
+                     TextColor="#333333"/>  
+          </Border>  
+
+          <!-- Action Buttons -->  
+          <Grid ColumnDefinitions="*, *" ColumnSpacing="10">  
+              <!-- Edit Button -->  
+              <Button Grid.Column="0"  
+                      ImageSource="edit.png"  
+                      BackgroundColor="#0078D4"   
+                      TextColor="White"   
+                      CornerRadius="10"   
+                      Command="{Binding GoToEditPageCommand}"  
+                      Padding="10"
+                      HeightRequest="50"
+                      Text="Edit"
+                      FontSize="20"/>
+                
+
+                <!-- Delete Button -->  
+              <Button Grid.Column="1"  
+                      ImageSource="delete.png"  
+                      BackgroundColor="#FF4D4D"   
+                      TextColor="White"   
+                      CornerRadius="10"   
+                      Command="{Binding DeleteTaskCommand}"  
+                      Padding="10"
+                      HeightRequest="50"
+                      Text="Delete"
+                      FontSize="20"/>  
+          </Grid>  
+      </VerticalStackLayout>  
+  </ScrollView>  
+</ContentPage>

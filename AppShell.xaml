@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="TaskManager.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:TaskManager"
+    xmlns:pages="clr-namespace:TaskManager.Pages"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title="TaskManager"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarHasShadow="True"
+    Shell.TabBarBackgroundColor="{StaticResource Primary}"
+    Shell.TabBarForegroundColor="White"
+    Shell.TabBarTitleColor="White"
+    Shell.TabBarUnselectedColor="#EDEDED"
+    Shell.BackgroundColor="{StaticResource Primary}"
+    Shell.TitleColor="White"
+    Shell.ForegroundColor="White">
+
+    <Shell.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{StaticResource Primary}" StatusBarStyle="LightContent"/>
+    </Shell.Behaviors>
+    
+
+
+    <ShellContent
+     Title="Login"
+     ContentTemplate="{DataTemplate pages:LoginPage}"
+     Route="LoginPage" />
+
+
+    <TabBar>
+        <ShellContent
+            Title="Home"
+            Icon="home.png"
+            ContentTemplate="{DataTemplate pages:MainPage}"
+            Route="MainPage" />
+        <ShellContent
+            Title="All Tasks"
+            Icon="list.png"
+            ContentTemplate="{DataTemplate pages:AllTasksPage}"
+            Route="AllTasksPage" />
+        <ShellContent
+            Title="Add Task"
+            Icon="plus.png"
+            ContentTemplate="{DataTemplate pages:AddTaskPage}"
+            Route="AddTaskPage" />
+        <ShellContent
+            Title="Settings"
+            Icon="settings.png"
+            ContentTemplate="{DataTemplate pages:SettingsPage}"
+            Route="SettingsPage" />
+    </TabBar>
+
+
+
+</Shell>

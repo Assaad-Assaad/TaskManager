@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+            xmlns:controls="clr-namespace:Microsoft.Maui.Controls"
+            xmlns:local="clr-namespace:TaskManager.Utils"
+            xmlns:viewmodel="clr-namespace:TaskManager.ViewModels"  
+            xmlns:model="clr-namespace:TaskManager.Models"  
+            x:DataType="viewmodel:EditTaskViewModel"  
+            x:Class="TaskManager.Pages.EditTaskPage"  
+            Title="EditTaskPage">  
+   <ScrollView>  
+       <VerticalStackLayout Padding="15" Spacing="15">  
+           <!-- Title -->  
+           <Border Stroke="#CCCCCC"  
+                   BackgroundColor="White"  
+                   StrokeShape="RoundRectangle 8"  
+                   Padding="10">  
+               <Entry Placeholder="Title"  
+                      Text="{Binding Task.Title}"  
+                      FontSize="16"  
+                      ReturnType="Next"/>  
+           </Border>  
+
+           <!-- Description -->  
+           <Border Stroke="#CCCCCC"  
+                   BackgroundColor="White"  
+                   StrokeShape="RoundRectangle 8"  
+                   Padding="10">  
+               <Editor Placeholder="Description"  
+                       Text="{Binding Task.Description}"  
+                       HeightRequest="100"  
+                       FontSize="16"  
+                       AutoSize="TextChanges"/>  
+           </Border>  
+
+           <!-- Priority -->  
+           <Border Stroke="#CCCCCC"  
+                   BackgroundColor="White"  
+                   StrokeShape="RoundRectangle 8"  
+                   Padding="10">  
+               <Picker Title="Priority"  
+                       ItemsSource="{Binding Source={x:Static local:PriorityFilters.All}}"  
+                       SelectedItem="{Binding Task.Priority}"  
+                       FontSize="16"/>  
+           </Border>  
+
+           <!-- Category -->  
+           <Border Stroke="#CCCCCC"  
+                   BackgroundColor="White"  
+                   StrokeShape="RoundRectangle 8"  
+                   Padding="10">  
+               <Picker Title="Category"  
+                       ItemsSource="{Binding Categories}"  
+                       SelectedItem="{Binding Task.Category}"  
+                       FontSize="16"/>  
+           </Border>  
+
+           <!-- Due Date -->  
+           <Border Stroke="#CCCCCC"  
+                   BackgroundColor="White"  
+                   StrokeShape="RoundRectangle 8"  
+                   Padding="10">  
+               <DatePicker Date="{Binding Task.DueDate}"  
+                           Format="MM/dd/yyyy"  
+                           FontSize="16"/>  
+           </Border>  
+
+           <!-- Update Button -->  
+           <Button Text="Update Task"  
+                   BackgroundColor="#0078D4"  
+                   TextColor="White"  
+                   CornerRadius="8"  
+                   Padding="15,10"  
+                   FontSize="16"  
+                   Command="{Binding UpdateTaskCommand}"/>  
+       </VerticalStackLayout>  
+   </ScrollView>  
+</ContentPage>
