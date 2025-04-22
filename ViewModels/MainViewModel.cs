@@ -25,28 +25,28 @@ namespace TaskManager.ViewModels
                 Id = 1,
                 Title = "Finish Report",
                 DueDate = DateTime.Now.AddDays(1),
-                Priority = "High"
+                Priority = PriorityLevel.High
             });
             Tasks.Add(new TaskModel
             {
                 Id = 2,
                 Title = "Team Meeting",
                 DueDate = DateTime.Now.AddDays(3),
-                Priority = "Medium"
+                Priority = PriorityLevel.High
             });
             Tasks.Add(new TaskModel
             {
                 Id = 3,
                 Title = "Grocery Shopping",
                 DueDate = DateTime.Now.AddDays(5),
-                Priority = "Low"
+                Priority = PriorityLevel.High
             });
             Tasks.Add(new TaskModel
             {
                 Id = 4,
                 Title = "Client Call",
                 DueDate = DateTime.Now.AddDays(2),
-                Priority = "High"
+                Priority = PriorityLevel.High
             });
 
         }

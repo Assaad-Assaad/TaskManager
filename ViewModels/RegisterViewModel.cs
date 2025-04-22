@@ -5,11 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaskManager.Api;
 
 namespace TaskManager.ViewModels
 {
     public partial class RegisterViewModel : ObservableObject
     {
+        private readonly IAuthApi _authApi;
+
+        public RegisterViewModel(IAuthApi authApi)
+        {
+            _authApi = authApi;
+        }
 
         [ObservableProperty]
         private string _name;

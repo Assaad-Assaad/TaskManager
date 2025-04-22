@@ -51,7 +51,7 @@
                    Padding="10">  
                <Picker Title="Category"  
                        ItemsSource="{Binding Categories}"  
-                       SelectedItem="{Binding Task.Category}"  
+                       SelectedItem="{Binding Task.Category.Name}"  
                        FontSize="16"/>  
            </Border>  
 
