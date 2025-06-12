@@ -28,7 +28,7 @@ A **cross-platform personal task manager** built using **.NET MAUI** (.NET 9) to
 - **Details Page** – Show task details
 - **Add Task Page** – Create new tasks
 - **Edit Task Page** – Update or delete existing tasks
-- **Settings Page** – Change personal info
+- **Settings Page** – View/Change personal info
 
 ---
 
